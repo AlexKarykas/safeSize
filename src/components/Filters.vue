@@ -1,20 +1,15 @@
 <template>
-  <div class="accordion filter-area" role="tablist">
-    <h4 class="filters-header">Filters</h4>
+  <div class="accordion" role="tablist">
+    <h4 class="menu-header">Filters</h4>
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="
-          p-1
-          d-flex
-          justify-content-between
-          align-items-center
-          filter-card-header
-        "
+        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
         role="tab"
       >
         <a v-b-toggle.brand class="filter-header-text"
-          >Brand <strong>{{ selected }}1 selected</strong></a
+          >Brand &bull;
+          <span class="items-selected">{{ selected }} selected</span></a
         >
         <a v-b-toggle.brand>
           <b-icon
@@ -31,25 +26,46 @@
       </b-card-header>
       <b-collapse id="brand" accordion="my-accordion" role="tabpanel">
         <b-form-group class="brand-checkbox-list">
-          <b-form-checkbox class="checkbox-item" value="NB"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="NB"
             >New Balance</b-form-checkbox
           >
-          <b-form-checkbox class="checkbox-item" value="Adidas"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="Adidas"
             >Adidas</b-form-checkbox
           >
-          <b-form-checkbox class="checkbox-item" value="Nike"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="Nike"
             >Nike Performance</b-form-checkbox
           >
-          <b-form-checkbox class="checkbox-item" value="Reebok"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="Reebok"
             >Reebok</b-form-checkbox
           >
-          <b-form-checkbox class="checkbox-item" value="Asics"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="Asics"
             >Asics</b-form-checkbox
           >
-          <b-form-checkbox class="checkbox-item" value="UA"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="UA"
             >Under Armour</b-form-checkbox
           >
-          <b-form-checkbox class="checkbox-item" value="Puma"
+          <b-form-checkbox
+            class="checkbox-item"
+            @change="addSelectedBrand()"
+            value="Puma"
             >Puma</b-form-checkbox
           >
         </b-form-group>
@@ -58,13 +74,7 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="
-          p-1
-          d-flex
-          justify-content-between
-          align-items-center
-          filter-card-header
-        "
+        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
         role="tab"
       >
         <a v-b-toggle.color class="filter-header-text">Colour </a>
@@ -98,13 +108,7 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="
-          p-1
-          d-flex
-          justify-content-between
-          align-items-center
-          filter-card-header
-        "
+        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
         role="tab"
       >
         <a v-b-toggle.gender class="filter-header-text">Gender</a>
@@ -128,13 +132,7 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="
-          p-1
-          d-flex
-          justify-content-between
-          align-items-center
-          filter-card-header
-        "
+        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
         role="tab"
       >
         <a v-b-toggle.fabric class="filter-header-text"> Fabric</a>
@@ -174,7 +172,14 @@ export default {
         { caption: "Red", state: false },
         { caption: "Pink", state: false },
       ],
+      selected: 0,
     };
+  },
+  methods: {
+    addSelectedBrand() {
+      //TODO Need to subtract on uncheck
+      return this.selected++;
+    },
   },
   computed: {
     btnStates() {
@@ -199,8 +204,9 @@ export default {
   background-color: #006eb7;
 }
 
-.filter-area {
-	margin: 1rem;
+.items-selected {
+  color: #006eb7;
+  font-weight: bold;
 }
 
 .color-btn-goup {
@@ -216,7 +222,7 @@ export default {
   margin: 1%;
 }
 
-.filters-header {
+.menu-header {
   padding: 0.25rem;
   font-size: 1.2rem;
   text-align: left;
@@ -227,11 +233,12 @@ export default {
 }
 
 .color-btn {
-  width: 3.8rem;
-  height: 3.8rem;
+  width: 3.5rem;
+  height: 3.5rem;
   align-items: center;
-  margin: 10px;
+  margin: 0.5rem;
   padding: 0;
+  border-radius: 25%;
 }
 
 a:hover {
@@ -241,22 +248,7 @@ a:hover {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: 0.5px;
   color: #404040;
-}
-
-.filter-selected {
-  font-size: 12px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
-  text-align: left;
-  color: #006eb7;
-  border-bottom: 1px solid black;
 }
 </style>

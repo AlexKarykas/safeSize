@@ -8,7 +8,6 @@
         </div>
       </div>
 
-      <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
           <div class="sidebar-toggle-button-right">
@@ -23,9 +22,18 @@
       </b-navbar-nav>
     </b-navbar>
 
-    <b-sidebar id="sidebar" title="Functional Advice" left shadow>
-      <b-form-checkbox switch class="mr-n2"> </b-form-checkbox>
-      <div>
+    <b-sidebar id="sidebar" left shadow>
+      <div class="sidebar-basic">
+        <b-container>
+          <!-- <b-row>
+          <b-icon class="when-closed" icon="chevron-compact-left"></b-icon>
+          Our recommendations
+        </b-row> -->
+          <b-row class="justify-content-between">
+            <h4 class="menu-header">Functional Advice</h4>
+            <b-form-checkbox switch class="mr-n2"> </b-form-checkbox>
+          </b-row>
+        </b-container>
         <div class="drawer-rectangle">
           <p>CATEGORY: ROAD</p>
           <b-icon icon="info-circle-fill" variant="primary"></b-icon>
@@ -39,16 +47,10 @@
           <b-icon icon="info-circle-fill" variant="primary"></b-icon>
         </div>
         <b-input-group class="sidebar-search-box">
-          <b-form-input
-            v-model="text"
-            type="search"
-            placeholder="Search shoes..."
-          >
+          <b-form-input type="search" placeholder="Search shoes...">
           </b-form-input>
-          <b-input-group-append>
-            <b-button variant="outline-primary"
-              ><b-icon icon="search" variant="primary"></b-icon
-            ></b-button>
+          <b-input-group-append class="search-icon">
+            <b-icon icon="search" variant="primary"></b-icon>
           </b-input-group-append>
         </b-input-group>
         <Filters />
@@ -68,6 +70,16 @@ export default {
 </script>
 
 <style>
+.sidebar-basic {
+  padding: 1rem;
+}
+
+.search-icon {
+  position: absolute;
+  right: 3%;
+  top: 30%;
+}
+
 .custom-navbar {
   background: #fff;
   border-radius: 0 0 15px 15px;
@@ -84,9 +96,10 @@ export default {
   margin-left: 10px;
   font-weight: bold;
 }
+
 .sidebar-search-box {
-  margin: 3%;
-  outline: non;
+  margin: 2rem 0;
+  outline: none;
 }
 
 .name-avatar {
@@ -107,10 +120,9 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 1% 5%;
-  padding: 1% 4%;
-  width: 90%;
-  border-radius: 6.3px;
+  margin: 0.6rem 0;
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
   background-color: #d8edf8;
 }
 
@@ -118,23 +130,15 @@ export default {
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
   text-align: left;
   color: #006eb7;
 }
 
 .btn-remove {
-  width: 30%;
+  width: 7.8rem;
+  height: 3rem;
   margin: 3%;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
-  text-align: center;
   color: #006eb7;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.18),
     0 1.1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -142,14 +146,10 @@ export default {
 }
 
 .btn-apply {
-  width: 30%;
+  width: 7.8rem;
+  height: 3rem;
   margin: 3%;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
-  text-align: center;
   color: #fff;
   box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.18),
     0 1.1px 5px 0 rgba(0, 0, 0, 0.2);

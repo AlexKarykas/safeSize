@@ -19,12 +19,12 @@
 @import "~bootstrap/scss/custom-forms";
 
 //============ COMPONENTS ===========
-// @import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
 //@import "bootstrap/scss/card";
 //@import "bootstrap/scss/breadcrumb";
 //@import "bootstrap/scss/pagination";
-//@import "bootstrap/scss/badge";
+@import "bootstrap/scss/badge";
 //@import "bootstrap/scss/jumbotron";
 //@import "bootstrap/scss/alert";
 //@import "bootstrap/scss/progress";
@@ -48,7 +48,7 @@
 @import "~bootstrap/scss/utilities/flex";
 // @import "~bootstrap/scss/utilities/float";
 // @import "~bootstrap/scss/utilities/interactions";
-// @import "~bootstrap/scss/utilities/overflow";
+@import "~bootstrap/scss/utilities/overflow";
 // @import "~bootstrap/scss/utilities/position";
 // @import "~bootstrap/scss/utilities/screenreaders";
 @import "~bootstrap/scss/utilities/shadows";
@@ -56,7 +56,7 @@
 @import "~bootstrap/scss/utilities/spacing";
 // @import "~bootstrap/scss/utilities/stretched-link";
 @import "~bootstrap/scss/utilities/text";
-// @import "~bootstrap/scss/utilities/visibility";
+@import "~bootstrap/scss/utilities/visibility";
 
 
 //================= PRINT ==================
@@ -88,12 +88,12 @@
 @import "~bootstrap-vue/src/components/input-group/index";
 // @import "~bootstrap-vue/src/components/media/index";
 @import "~bootstrap-vue/src/components/modal/index";
-// @import "~bootstrap-vue/src/components/nav/index";
-// @import "~bootstrap-vue/src/components/navbar/index";
+@import "~bootstrap-vue/src/components/nav/index";
+@import "~bootstrap-vue/src/components/navbar/index";
 // @import "~bootstrap-vue/src/components/pagination-nav/index";
 // @import "~bootstrap-vue/src/components/pagination/index";
 // @import "~bootstrap-vue/src/components/popover/index";
-// @import "~bootstrap-vue/src/components/sidebar/index";
+@import "~bootstrap-vue/src/components/sidebar/index";
 // @import "~bootstrap-vue/src/components/skeleton/index";
 // @import "~bootstrap-vue/src/components/table/index";
 // @import "~bootstrap-vue/src/components/time/index";

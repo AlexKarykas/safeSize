@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <span class="Profile"> Our recommendation </span>
+    <span class="recommendation"> Our recommendation </span>
     <b-container fluid="l">
       <b-row>
         <b-col><Shoe /></b-col>
@@ -16,7 +16,7 @@
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
-      </b-row>
+      </b-row> 
     </b-container>
   </div>
 </template>
@@ -36,15 +36,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.Profile {
+.recommendation {
   margin: 5%;
   font-size: 1.5rem;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
   letter-spacing: 0.15px;
-  text-align: center;
   color: #404040;
 }
 h3 {

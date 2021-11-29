@@ -1,29 +1,31 @@
 <template>
-  <div class="Background">
-    <div class="card-header">
-      <div class="percentage-rectangle">
-        <span class="shoe-item_fit-number"> 99 </span>
-        <span class="shoe-item_fit-percent"> % </span>
-      </div>
-      <div class="order-options-group">
-        <div class="online-group">
-          <b-icon
-            class="buy-group-icon"
-            variant="primary"
-            icon="globe"
-          ></b-icon>
-          <span class="Online"> Online </span>
+  <div class="background">
+    <b-container>
+      <b-row class="justify-content-between">
+        <div class="percentage-rectangle">
+          <span class="shoe-item_fit-number"> 99 </span>
+          <span class="shoe-item_fit-percent"> % </span>
         </div>
-        <div class="in-store-group">
-          <b-icon
-            class="buy-group-icon"
-            variant="success"
-            icon="shop-window"
-          ></b-icon>
-          <span class="In-store"> In-store </span>
+        <div class="order-options-group">
+          <div class="online-group">
+            <b-icon
+              class="buy-group-icon"
+              variant="primary"
+              icon="globe"
+            ></b-icon>
+            <span class="online"> Online </span>
+          </div>
+          <div class="in-store-group">
+            <b-icon
+              class="buy-group-icon"
+              variant="success"
+              icon="shop-window"
+            ></b-icon>
+            <span class="in-store"> In-store </span>
+          </div>
         </div>
-      </div>
-    </div>
+      </b-row>
+    </b-container>
     <div class="shoe">
       <b-img
         width="220px"
@@ -45,24 +47,16 @@ export default {
 </script>
 
 <style>
-.Background {
-  width: 90%;
-  height: 295px;
-  margin: 0 12px 25px;
-  border-radius: 17.4px;
+.background {
+  height: 18rem;
+  margin: 0 0.5rem 1.5rem;
+  border-radius: 1rem;
   box-shadow: 0 3px 22px 0 rgba(64, 64, 64, 0.1);
   background-color: #fff;
   overflow: hidden;
 }
 
-.card-header {
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-}
-
 .percentage-rectangle {
-  text-align: center;
   padding-top: 2%;
   width: 15%;
   background-color: #3ea3dc;
@@ -77,43 +71,29 @@ export default {
 }
 
 .shoe-item_fit-number {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
   text-align: center;
   color: #fff;
 }
 
 .shoe-item_fit-percent {
-  font-size: 12px;
+  font-size: 0.8rem;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.5px;
   text-align: center;
   color: #fff;
 }
 
 .shoe {
-  display: block;
-  top: 50%;
-  left: 50%;
-  width: 220px;
-  height: 110px;
+  width: 13.7rem;
+  height: 6.8rem;
   margin: 2rem auto;
+  transform: rotateY(180deg);
 }
 
 .Nike-Free-Run {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 0.3px;
   text-align: center;
   color: #404040;
 }
@@ -122,16 +102,12 @@ export default {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
-  width: 67.9px;
+  width: 4rem;
+  height: 1rem;
 }
 
-.Online {
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+.online {
+  font-size: 0.9rem;
   text-align: left;
   color: #3ea3dc;
 }
@@ -140,18 +116,13 @@ export default {
   justify-content: space-between;
   display: flex;
   flex-direction: row;
-  width: 73.9px;
-  height: 17.3px;
-  margin: 3px 0 0 15px;
+  width: 5rem;
+  height: 1rem;
+  margin: 0 0 0 1rem;
 }
 
-.In-store {
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+.in-store {
+  font-size: 0.9rem;
   text-align: left;
   color: #27ae60;
 }
