@@ -1,10 +1,22 @@
 <template>
-  <div class="accordion" role="tablist">
+  <div class="accordion filter-area" role="tablist">
+    <h4 class="filters-header">Filters</h4>
     <b-card no-body class="mb-1">
-      <b-card-header header-tag="header" class="p-1" role="tab">
+      <b-card-header
+        header-tag="header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
+        role="tab"
+      >
         <a v-b-toggle.brand class="filter-header-text"
-          >Brand
-          <strong>{{ selected }} selected</strong>
+          >Brand <strong>{{ selected }}1 selected</strong></a
+        >
+        <a v-b-toggle.brand>
           <b-icon
             scale="1.5"
             class="when-closed"
@@ -44,75 +56,69 @@
       </b-collapse>
     </b-card>
     <b-card no-body class="mb-1">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <a v-b-toggle.color class="filter-header-text"
-          >Colour
-          <b-icon class="when-closed" icon="chevron-compact-down"></b-icon>
-          <b-icon class="when-open" icon="chevron-compact-up"></b-icon
+      <b-card-header
+        header-tag="header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
+        role="tab"
+      >
+        <a v-b-toggle.color class="filter-header-text">Colour </a>
+        <a v-b-toggle.color>
+          <b-icon
+            scale="1.5"
+            class="when-closed"
+            icon="chevron-compact-down"
+          ></b-icon>
+          <b-icon
+            scale="1.5"
+            class="when-open"
+            icon="chevron-compact-up"
+          ></b-icon
         ></a>
       </b-card-header>
       <b-collapse id="color" accordion="my-accordion" role="tabpanel">
-        <b-form-group>
-          <b-container fluid="l">
-            <b-row>
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >White</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Black</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Blue</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Grey</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Purple</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Green</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Brown</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Red</b-button
-                ></b-col
-              >
-              <b-col
-                ><b-button class="color-btn" variant="light"
-                  >Pink</b-button
-                ></b-col
-              >
-            </b-row>
-          </b-container>
-          <div class="MobileFilterActive">Blue</div>
-          <div class="MobileFilterInactive">White</div>
-        </b-form-group>
+        <b-button-group size="sm" class="color-btn-goup">
+          <b-button
+            class="color-btn"
+            v-for="(btn, idx) in colorBtns"
+            :key="idx"
+            :pressed.sync="btn.state"
+            variant="outline-secondary"
+          >
+            {{ btn.caption }}
+          </b-button>
+        </b-button-group>
       </b-collapse>
     </b-card>
     <b-card no-body class="mb-1">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <a v-b-toggle.gender class="filter-header-text"
-          >Gender
-          <b-icon class="when-closed" icon="chevron-compact-down"></b-icon>
-          <b-icon class="when-open" icon="chevron-compact-up"></b-icon
+      <b-card-header
+        header-tag="header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
+        role="tab"
+      >
+        <a v-b-toggle.gender class="filter-header-text">Gender</a>
+        <a v-b-toggle.gender>
+          <b-icon
+            scale="1.5"
+            class="when-closed"
+            icon="chevron-compact-down"
+          ></b-icon>
+          <b-icon
+            scale="1.5"
+            class="when-open"
+            icon="chevron-compact-up"
+          ></b-icon
         ></a>
       </b-card-header>
       <b-collapse id="gender" accordion="my-accordion" role="tabpanel">
@@ -120,12 +126,30 @@
       </b-collapse>
     </b-card>
     <b-card no-body class="mb-1">
-      <b-card-header header-tag="header" class="p-1" role="tab">
-        <a v-b-toggle.fabric class="filter-header-text"
-          >Fabric
-          <b-icon class="when-closed" icon="chevron-compact-down"></b-icon>
-          <b-icon class="when-open" icon="chevron-compact-up"></b-icon
-        ></a>
+      <b-card-header
+        header-tag="header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
+        role="tab"
+      >
+        <a v-b-toggle.fabric class="filter-header-text"> Fabric</a>
+        <a v-b-toggle.fabric>
+          <b-icon
+            scale="1.5"
+            class="when-closed"
+            icon="chevron-compact-down"
+          ></b-icon>
+          <b-icon
+            scale="1.5"
+            class="when-open"
+            icon="chevron-compact-up"
+          ></b-icon>
+        </a>
       </b-card-header>
       <b-collapse id="fabric" accordion="my-accordion" role="tabpanel">
         <b-form-group> </b-form-group>
@@ -135,13 +159,52 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      myToggle: false,
+      colorBtns: [
+        { caption: "White", state: false },
+        { caption: "Black", state: false },
+        { caption: "Blue", state: false },
+        { caption: "Grey", state: false },
+        { caption: "Purple", state: false },
+        { caption: "Green", state: false },
+        { caption: "Brown", state: false },
+        { caption: "Red", state: false },
+        { caption: "Pink", state: false },
+      ],
+    };
+  },
+  computed: {
+    btnStates() {
+      return this.colorBtns.map((btn) => btn.state);
+    },
+  },
+};
 </script>
 
 <style>
 .collapsed > .when-open,
 .not-collapsed > .when-closed {
   display: none;
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active,
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-outline-secondary.dropdown-toggle,
+.color-btn:hover {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px #006eb7;
+  background-color: #006eb7;
+}
+
+.filter-area {
+	margin: 1rem;
+}
+
+.color-btn-goup {
+  text-align: left;
 }
 
 .brand-checkbox-list {
@@ -153,51 +216,35 @@ export default {};
   margin: 1%;
 }
 
-.color-btn {
-  border-radius: 15px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px rgba(145, 150, 152, 0.6);
-  background-color: #fff;
+.filters-header {
+  padding: 0.25rem;
+  font-size: 1.2rem;
+  text-align: left;
 }
 
-.MobileFilterActive {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 0 20px 0 0;
-  padding: 10px 16px;
-  border-radius: 15px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px #006eb7;
-  background-color: #006eb7;
+.filter-card-header {
+  border-bottom: 1px solid #e7e7e7;
 }
-.MobileFilterInactive {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+
+.color-btn {
+  width: 3.8rem;
+  height: 3.8rem;
   align-items: center;
-  gap: 10px;
-  margin: 0 0 0 20px;
-  padding: 10px 16px;
-  border-radius: 15px;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px rgba(145, 150, 152, 0.6);
-  background-color: #fff;
+  margin: 10px;
+  padding: 0;
 }
+
 a:hover {
   text-decoration: none;
 }
 .filter-header-text {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: 0.5px;
-  text-align: left;
   color: #404040;
 }
 
@@ -210,5 +257,6 @@ a:hover {
   letter-spacing: 0.5px;
   text-align: left;
   color: #006eb7;
+  border-bottom: 1px solid black;
 }
 </style>

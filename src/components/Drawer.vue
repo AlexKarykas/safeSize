@@ -1,34 +1,27 @@
 <template>
   <div w-25 p-3>
-    <div>
-      <b-navbar class="custom-navbar">
-
-        <div v-b-toggle.sidebar>
-          <div class="sidebar-toggle-button-left">
-            <b-icon icon="filter"></b-icon>
-            <p>FILTERS</p>
-          </div>
+    <b-navbar class="custom-navbar">
+      <div v-b-toggle.sidebar>
+        <div class="sidebar-toggle-button-left">
+          <b-icon icon="filter"></b-icon>
+          <p>FILTERS</p>
         </div>
+      </div>
 
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <div class="sidebar-toggle-button-right">
-              <b-avatar
-                icon="basket"
-                class="cart-avatar"
-                variant="primary"
-              ></b-avatar>
-              <b-avatar
-                class="name-avatar"
-                variant="light"
-                text="AM"
-              ></b-avatar>
-            </div>
-          </b-nav-form>
-        </b-navbar-nav>
-      </b-navbar>
-    </div>
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+        <b-nav-form>
+          <div class="sidebar-toggle-button-right">
+            <b-avatar
+              icon="basket"
+              class="cart-avatar"
+              variant="primary"
+            ></b-avatar>
+            <b-avatar class="name-avatar" variant="light" text="AM"></b-avatar>
+          </div>
+        </b-nav-form>
+      </b-navbar-nav>
+    </b-navbar>
 
     <b-sidebar id="sidebar" title="Functional Advice" left shadow>
       <b-form-checkbox switch class="mr-n2"> </b-form-checkbox>
@@ -45,7 +38,7 @@
           <p>STABILITY: STABLE+</p>
           <b-icon icon="info-circle-fill" variant="primary"></b-icon>
         </div>
-        <b-input-group>
+        <b-input-group class="sidebar-search-box">
           <b-form-input
             v-model="text"
             type="search"
@@ -53,7 +46,9 @@
           >
           </b-form-input>
           <b-input-group-append>
-            <b-icon icon="search" variant="primary"></b-icon>
+            <b-button variant="outline-primary"
+              ><b-icon icon="search" variant="primary"></b-icon
+            ></b-button>
           </b-input-group-append>
         </b-input-group>
         <Filters />
@@ -88,6 +83,10 @@ export default {
   margin-bottom: 0;
   margin-left: 10px;
   font-weight: bold;
+}
+.sidebar-search-box {
+  margin: 3%;
+  outline: non;
 }
 
 .name-avatar {
