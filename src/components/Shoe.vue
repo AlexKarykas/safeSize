@@ -46,7 +46,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .background {
   height: 18rem;
   max-width: 29rem;
@@ -60,7 +60,7 @@ export default {
 .percentage-rectangle {
   padding-top: 2%;
   width: 15%;
-  background-color: #3ea3dc;
+  background-color: $lightblue;
   border-radius: 5%;
 }
 
@@ -110,7 +110,7 @@ export default {
 .online {
   font-size: 0.9rem;
   text-align: left;
-  color: #3ea3dc;
+  color: $lightblue;
 }
 
 .in-store-group {

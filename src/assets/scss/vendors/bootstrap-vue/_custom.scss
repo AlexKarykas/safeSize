@@ -17,8 +17,8 @@ $black:    #000 !default;
 // $grays: () !default;
 
 $blue:    #006eb7 !default;
+
 // $blue:    #007bff !default;
-// $blue:    #3ea3dc !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
@@ -41,6 +41,14 @@ $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
 $theme-colors: () !default;
+
+//Custom Variables
+$lightblue: #3ea3dc;
+$gray-border: #e7e7e7;
+$blue-background: #d8edf8;
+$text-color: #404040;
+$shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.18),
+0 1.1px 5px 0 rgba(0, 0, 0, 0.2);
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;

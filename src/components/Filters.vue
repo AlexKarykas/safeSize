@@ -13,7 +13,7 @@
         "
         role="tab"
       >
-        <a v-b-toggle.brand class="filter-header-text"
+        <a v-b-toggle.brand class="filters__toggle-header"
           >Brand &bull;
           <span class="items-selected">{{ selected }} selected</span></a
         >
@@ -21,12 +21,12 @@
           <b-icon
             scale="1.5"
             class="when-closed"
-            icon="chevron-compact-down"
+            icon="chevron-down"
           ></b-icon>
           <b-icon
             scale="1.5"
             class="when-open"
-            icon="chevron-compact-up"
+            icon="chevron-up"
           ></b-icon
         ></a>
       </b-card-header>
@@ -34,43 +34,43 @@
         <b-form-group class="brand-checkbox-list">
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="NB"
             >New Balance</b-form-checkbox
           >
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="Adidas"
             >Adidas</b-form-checkbox
           >
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="Nike"
             >Nike Performance</b-form-checkbox
           >
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="Reebok"
             >Reebok</b-form-checkbox
           >
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="Asics"
             >Asics</b-form-checkbox
           >
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="UA"
             >Under Armour</b-form-checkbox
           >
           <b-form-checkbox
             class="checkbox-item"
-            @change="addSelectedBrand()"
+            @change="addSelectedBrand($event)"
             value="Puma"
             >Puma</b-form-checkbox
           >
@@ -89,17 +89,17 @@
         "
         role="tab"
       >
-        <a v-b-toggle.color class="filter-header-text">Colour </a>
+        <a v-b-toggle.color class="filters__toggle-header">Colour </a>
         <a v-b-toggle.color>
           <b-icon
             scale="1.5"
             class="when-closed"
-            icon="chevron-compact-down"
+            icon="chevron-down"
           ></b-icon>
           <b-icon
             scale="1.5"
             class="when-open"
-            icon="chevron-compact-up"
+            icon="chevron-up"
           ></b-icon
         ></a>
       </b-card-header>
@@ -129,17 +129,17 @@
         "
         role="tab"
       >
-        <a v-b-toggle.gender class="filter-header-text">Gender</a>
+        <a v-b-toggle.gender class="filters__toggle-header">Gender</a>
         <a v-b-toggle.gender>
           <b-icon
             scale="1.5"
             class="when-closed"
-            icon="chevron-compact-down"
+            icon="chevron-down"
           ></b-icon>
           <b-icon
             scale="1.5"
             class="when-open"
-            icon="chevron-compact-up"
+            icon="chevron-up"
           ></b-icon
         ></a>
       </b-card-header>
@@ -159,17 +159,17 @@
         "
         role="tab"
       >
-        <a v-b-toggle.fabric class="filter-header-text"> Fabric</a>
+        <a v-b-toggle.fabric class="filters__toggle-header"> Fabric</a>
         <a v-b-toggle.fabric>
           <b-icon
             scale="1.5"
             class="when-closed"
-            icon="chevron-compact-down"
+            icon="chevron-down"
           ></b-icon>
           <b-icon
             scale="1.5"
             class="when-open"
-            icon="chevron-compact-up"
+            icon="chevron-up"
           ></b-icon>
         </a>
       </b-card-header>
@@ -189,17 +189,19 @@
         "
         role="tab"
       >
-        <a v-b-toggle.availability class="filter-header-text"> Availability</a>
+        <a v-b-toggle.availability class="filters__toggle-header">
+          Availability</a
+        >
         <a v-b-toggle.availability>
           <b-icon
             scale="1.5"
             class="when-closed"
-            icon="chevron-compact-down"
+            icon="chevron-down"
           ></b-icon>
           <b-icon
             scale="1.5"
             class="when-open"
-            icon="chevron-compact-up"
+            icon="chevron-up"
           ></b-icon>
         </a>
       </b-card-header>
@@ -230,8 +232,10 @@ export default {
     };
   },
   methods: {
-    addSelectedBrand() {
-      //TODO Need to subtract on uncheck
+    addSelectedBrand(event) {
+      if (!event) {
+        return this.selected--;
+      }
       return this.selected++;
     },
   },
@@ -243,7 +247,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .collapsed > .when-open,
 .not-collapsed > .when-closed {
   display: none;
@@ -254,12 +258,12 @@ export default {
 .show > .btn-outline-secondary.dropdown-toggle,
 .color-btn:hover {
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px #006eb7;
-  background-color: #006eb7;
+  border: solid 1px $blue;
+  background-color: $blue;
 }
 
 .items-selected {
-  color: #006eb7;
+  color: $blue;
   font-weight: bold;
 }
 
@@ -283,14 +287,14 @@ export default {
 }
 
 .filter-card-header {
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid $gray-border;
 }
 
 .color-btn {
   width: 3.2rem;
   height: 3.2rem;
   align-items: center;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 500;
   margin: 0.5rem;
   padding: 0;
@@ -300,9 +304,9 @@ export default {
 a:hover {
   text-decoration: none;
 }
-.filter-header-text {
+.filters__toggle-header {
   text-decoration: none;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   color: #404040;
