@@ -1,22 +1,23 @@
 <template>
   <div class="home">
-    <span class="recommendation"> Our recommendation </span>
-    <b-container fluid="l">
-      <b-row>
+    <span class="title-sm d-block d-sm-none"> Our recommendation </span>
+    <span class="title-lg d-none d-sm-block"> 15 RESULTS </span>
+    <b-container fluid="l" class="shoes-container">
+      <b-row no-gutters>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
       </b-row>
-      <b-row>
+      <b-row no-gutters>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
       </b-row>
-      <b-row>
+      <b-row no-gutters>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
         <b-col><Shoe /></b-col>
-      </b-row> 
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -35,26 +36,22 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.recommendation {
-  margin: 5%;
+<style>
+.home,
+.shoes-container {
+  margin-top: 1rem;
+}
+
+.title-sm,
+.title-lg {
+  padding: 1rem;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: 0.15px;
   color: #404040;
 }
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.title-lg {
+	text-align: left;
 }
 </style>

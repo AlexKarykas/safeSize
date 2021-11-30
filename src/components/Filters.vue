@@ -4,7 +4,13 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
         role="tab"
       >
         <a v-b-toggle.brand class="filter-header-text"
@@ -74,7 +80,13 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
         role="tab"
       >
         <a v-b-toggle.color class="filter-header-text">Colour </a>
@@ -108,7 +120,13 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
         role="tab"
       >
         <a v-b-toggle.gender class="filter-header-text">Gender</a>
@@ -132,7 +150,13 @@
     <b-card no-body class="mb-1">
       <b-card-header
         header-tag="header"
-        class="p-1 d-flex justify-content-between align-items-center filter-card-header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
         role="tab"
       >
         <a v-b-toggle.fabric class="filter-header-text"> Fabric</a>
@@ -150,6 +174,36 @@
         </a>
       </b-card-header>
       <b-collapse id="fabric" accordion="my-accordion" role="tabpanel">
+        <b-form-group> </b-form-group>
+      </b-collapse>
+    </b-card>
+    <b-card no-body class="mb-1">
+      <b-card-header
+        header-tag="header"
+        class="
+          p-1
+          d-flex
+          justify-content-between
+          align-items-center
+          filter-card-header
+        "
+        role="tab"
+      >
+        <a v-b-toggle.availability class="filter-header-text"> Availability</a>
+        <a v-b-toggle.availability>
+          <b-icon
+            scale="1.5"
+            class="when-closed"
+            icon="chevron-compact-down"
+          ></b-icon>
+          <b-icon
+            scale="1.5"
+            class="when-open"
+            icon="chevron-compact-up"
+          ></b-icon>
+        </a>
+      </b-card-header>
+      <b-collapse id="availability" accordion="my-accordion" role="tabpanel">
         <b-form-group> </b-form-group>
       </b-collapse>
     </b-card>
@@ -224,7 +278,7 @@ export default {
 
 .menu-header {
   padding: 0.25rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: left;
 }
 
@@ -233,9 +287,11 @@ export default {
 }
 
 .color-btn {
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
   align-items: center;
+  font-size: .9rem;
+  font-weight: 500;
   margin: 0.5rem;
   padding: 0;
   border-radius: 25%;
@@ -246,7 +302,7 @@ a:hover {
 }
 .filter-header-text {
   text-decoration: none;
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: 500;
   letter-spacing: 0.5px;
   color: #404040;

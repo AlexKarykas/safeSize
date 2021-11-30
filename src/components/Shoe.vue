@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <b-container>
-      <b-row class="justify-content-between">
+      <b-row align-h="between">
         <div class="percentage-rectangle">
           <span class="shoe-item_fit-number"> 99 </span>
           <span class="shoe-item_fit-percent"> % </span>
@@ -29,7 +29,7 @@
     <div class="shoe">
       <b-img
         width="220px"
-        src="../assets/images/nike-shoe.jpg"
+        src="../assets/images/nike-shoe.png"
         fluid
         alt="Nike Shoe"
       ></b-img>
@@ -49,6 +49,7 @@ export default {
 <style>
 .background {
   height: 18rem;
+  max-width: 29rem;
   margin: 0 0.5rem 1.5rem;
   border-radius: 1rem;
   box-shadow: 0 3px 22px 0 rgba(64, 64, 64, 0.1);
@@ -88,7 +89,7 @@ export default {
   width: 13.7rem;
   height: 6.8rem;
   margin: 2rem auto;
-  transform: rotateY(180deg);
+  /* transform: rotateY(180deg); */
 }
 
 .Nike-Free-Run {
