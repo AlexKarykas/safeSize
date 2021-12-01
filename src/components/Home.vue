@@ -51,6 +51,6 @@ export default {
 }
 
 .title-lg {
-	text-align: left;
+  text-align: left;
 }
 </style>

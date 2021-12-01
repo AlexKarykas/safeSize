@@ -1,11 +1,17 @@
 <template>
   <div w-25 p-3>
     <Navbar />
-    <b-sidebar id="sidebar" left shadow no-header>
+    <b-sidebar id="sidebar" no-header left shadow class="sidebar--custom">
       <template #default="{ hide }">
         <div class="sidebar-basic">
           <b-container>
-            <b-row @click="hide" class="d-none d-sm-block">
+            <b-row>
+              <b-button-close
+                @click="hide"
+                class="d-inline-block d-sm-none drawer__close-button--sm"
+              ></b-button-close>
+            </b-row>
+            <b-row @click="hide" class="d-none d-sm-inline-block">
               <b-icon icon="chevron-left"></b-icon>
               <h2 class="sidebar-header">Our recommendations</h2>
             </b-row>
@@ -14,7 +20,7 @@
               <b-form-checkbox switch class="mr-n2"> </b-form-checkbox>
             </b-row>
           </b-container>
-          <b-container>
+          <b-container class="drawer__rectangle__container">
             <b-row align-h="between" class="drawer__rectangle">
               <p>CATEGORY: ROAD</p>
               <b-icon icon="info-circle-fill" variant="primary"></b-icon>
@@ -35,8 +41,10 @@
               class="search-box"
             >
             </b-form-input>
-            <b-input-group-append class="search-icon">
-              <b-icon icon="search" variant="primary"></b-icon>
+            <b-input-group-append>
+              <b-button class="search-box">
+                <b-icon icon="search" variant="primary"></b-icon>
+              </b-button>
             </b-input-group-append>
           </b-input-group>
           <Filters />
@@ -62,9 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-.d-sm-block {
-  display: inline-block;
-}
 .search-box,
 .search-box:focus {
   border: none;
@@ -74,27 +79,32 @@ export default {
   box-shadow: none;
 }
 
+.sidebar--custom {
+  margin-left: 2rem;
+}
+
 .sidebar-header {
   display: inline-block;
   padding: 0.25rem;
   font-size: 1.3rem;
   text-align: left;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .sidebar-basic {
-//   padding: 1rem;
   margin: 1rem;
-}
-
-.search-icon {
-  position: absolute;
-  right: 3%;
-  top: 30%;
 }
 
 .sidebar-search-box {
   margin: 2rem 0;
   outline: none;
+}
+
+.drawer__rectangle__container {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 .drawer__rectangle {
@@ -116,7 +126,9 @@ export default {
   height: 3rem;
   margin: 3%;
   font-weight: bold;
+  border-radius: 1rem;
 }
+
 .drawer__btn--remove {
   color: $blue;
   box-shadow: $shadow;
@@ -126,6 +138,6 @@ export default {
 .drawer__btn--apply {
   color: $white;
   box-shadow: $shadow;
-  background-color: $white;
+  background-color: $blue;
 }
 </style>

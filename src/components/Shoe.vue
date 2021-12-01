@@ -89,7 +89,6 @@ export default {
   width: 13.7rem;
   height: 6.8rem;
   margin: 2rem auto;
-  /* transform: rotateY(180deg); */
 }
 
 .Nike-Free-Run {

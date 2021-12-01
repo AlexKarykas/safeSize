@@ -47,6 +47,7 @@ export default {
 .navbar--custom {
   background: $white;
   border-radius: 0 0 15px 15px;
+  box-shadow: $shadow-lg;
 }
 
 .navbar__text {

@@ -18,16 +18,8 @@
           <span class="items-selected">{{ selected }} selected</span></a
         >
         <a v-b-toggle.brand>
-          <b-icon
-            scale="1.5"
-            class="when-closed"
-            icon="chevron-down"
-          ></b-icon>
-          <b-icon
-            scale="1.5"
-            class="when-open"
-            icon="chevron-up"
-          ></b-icon
+          <b-icon scale="1.5" class="when-closed" icon="chevron-down"></b-icon>
+          <b-icon scale="1.5" class="when-open" icon="chevron-up"></b-icon
         ></a>
       </b-card-header>
       <b-collapse id="brand" accordion="my-accordion" role="tabpanel">
@@ -91,16 +83,8 @@
       >
         <a v-b-toggle.color class="filters__toggle-header">Colour </a>
         <a v-b-toggle.color>
-          <b-icon
-            scale="1.5"
-            class="when-closed"
-            icon="chevron-down"
-          ></b-icon>
-          <b-icon
-            scale="1.5"
-            class="when-open"
-            icon="chevron-up"
-          ></b-icon
+          <b-icon scale="1.5" class="when-closed" icon="chevron-down"></b-icon>
+          <b-icon scale="1.5" class="when-open" icon="chevron-up"></b-icon
         ></a>
       </b-card-header>
       <b-collapse id="color" accordion="my-accordion" role="tabpanel">
@@ -131,16 +115,8 @@
       >
         <a v-b-toggle.gender class="filters__toggle-header">Gender</a>
         <a v-b-toggle.gender>
-          <b-icon
-            scale="1.5"
-            class="when-closed"
-            icon="chevron-down"
-          ></b-icon>
-          <b-icon
-            scale="1.5"
-            class="when-open"
-            icon="chevron-up"
-          ></b-icon
+          <b-icon scale="1.5" class="when-closed" icon="chevron-down"></b-icon>
+          <b-icon scale="1.5" class="when-open" icon="chevron-up"></b-icon
         ></a>
       </b-card-header>
       <b-collapse id="gender" accordion="my-accordion" role="tabpanel">
@@ -161,16 +137,8 @@
       >
         <a v-b-toggle.fabric class="filters__toggle-header"> Fabric</a>
         <a v-b-toggle.fabric>
-          <b-icon
-            scale="1.5"
-            class="when-closed"
-            icon="chevron-down"
-          ></b-icon>
-          <b-icon
-            scale="1.5"
-            class="when-open"
-            icon="chevron-up"
-          ></b-icon>
+          <b-icon scale="1.5" class="when-closed" icon="chevron-down"></b-icon>
+          <b-icon scale="1.5" class="when-open" icon="chevron-up"></b-icon>
         </a>
       </b-card-header>
       <b-collapse id="fabric" accordion="my-accordion" role="tabpanel">
@@ -193,16 +161,8 @@
           Availability</a
         >
         <a v-b-toggle.availability>
-          <b-icon
-            scale="1.5"
-            class="when-closed"
-            icon="chevron-down"
-          ></b-icon>
-          <b-icon
-            scale="1.5"
-            class="when-open"
-            icon="chevron-up"
-          ></b-icon>
+          <b-icon scale="1.5" class="when-closed" icon="chevron-down"></b-icon>
+          <b-icon scale="1.5" class="when-open" icon="chevron-up"></b-icon>
         </a>
       </b-card-header>
       <b-collapse id="availability" accordion="my-accordion" role="tabpanel">
@@ -310,5 +270,8 @@ a:hover {
   font-weight: 500;
   letter-spacing: 0.5px;
   color: #404040;
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>

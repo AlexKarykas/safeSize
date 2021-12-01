@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-bind:class="isOpen ? 'home--push' : 'home--push-back'">
     <Drawer title="Recommendations" />
     <Home />
   </div>
@@ -15,6 +15,18 @@ export default {
     Home,
     Drawer,
   },
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+  mounted() {
+    this.$root.$on("bv::collapse::state", (collapseId, isOpen) => {
+      if (collapseId === "sidebar") {
+        this.isOpen = isOpen;
+      }
+    });
+  },
 };
 </script>
 
@@ -28,5 +40,15 @@ export default {
   letter-spacing: 0.5px;
   color: $text-color;
   background-color: #f5f7f8;
+}
+
+.home--push-back {
+  margin-left: inherit;
+  transition: margin 300ms ease-in;
+}
+
+.home--push {
+  margin-left: 320px;
+  transition: margin 300ms ease-out;
 }
 </style>
