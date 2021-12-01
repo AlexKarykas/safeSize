@@ -1,19 +1,24 @@
 <template>
   <div id="app" v-bind:class="isOpen ? 'home--push' : 'home--push-back'">
-    <Drawer title="Recommendations" />
+    <div w-25 p-3>
+      <Navbar />
+      <Sidebar title="Recommendations" />
+    </div>
     <Home />
   </div>
 </template>
 
 <script>
 import Home from "./components/Home.vue";
-import Drawer from "./components/Drawer.vue";
+import Navbar from "./components/Navbar.vue";
+import Sidebar from "./components/Sidebar.vue";
 
 export default {
   name: "App",
   components: {
     Home,
-    Drawer,
+	Navbar,
+    Sidebar,
   },
   data() {
     return {
