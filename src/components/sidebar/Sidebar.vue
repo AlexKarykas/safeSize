@@ -1,21 +1,26 @@
 <template>
-  <b-sidebar id="sidebar" no-header left shadow class="sidebar--custom">
+  <b-sidebar
+    id="sidebar"
+    no-header
+    v-bind:backdrop="showBackdrop"
+    v-bind:right="showRight"
+    shadow
+  >
     <template #default="{ hide }">
       <div class="sidebar-basic">
+        <b-button-close
+		si
+          @click="hide"
+          class="d-inline-block d-sm-none sidebar__close-btn"
+        ></b-button-close>
         <b-container>
-          <b-row>
-            <b-button-close
-              @click="hide"
-              class="d-inline-block d-sm-none drawer__close-button--sm"
-            ></b-button-close>
-          </b-row>
           <b-row @click="hide" class="d-none d-sm-inline-block">
             <b-icon icon="chevron-left"></b-icon>
             <h2 class="sidebar-header">Our recommendations</h2>
           </b-row>
           <b-row align-h="between">
             <h4 class="menu-header">Functional Advice</h4>
-            <b-form-checkbox switch class="mr-n2"> </b-form-checkbox>
+            <b-form-checkbox switch size="lg" class="mr-n2"> </b-form-checkbox>
           </b-row>
         </b-container>
         <b-container class="drawer__rectangle__container">
@@ -58,9 +63,10 @@
 </template>
 
 <script>
-import SidebarFilters from "./filters/SidebarFilters.vue";
+import SidebarFilters from "./SidebarFilters.vue";
 export default {
   name: "Drawer",
+  props: ["width", "showBackdrop", "showRight"],
   components: { SidebarFilters },
 };
 </script>
@@ -75,8 +81,33 @@ export default {
   box-shadow: none;
 }
 
-.sidebar--custom {
-  margin-left: 2rem;
+// .sidebar--custom {
+//   margin-left: 2rem;
+//   width: 100%;
+//   max-width: 465px;
+// }
+
+.sidebar__close-btn.close {
+  position: fixed;
+  left: -3rem;
+  top: 0;
+  z-index: 1;
+  background: $white;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0 0 0 15px;
+}
+
+.b-sidebar.shadow.bg-light.text-dark {
+  top: 3.5rem;
+}
+.b-sidebar.b-sidebar-right.bg-light.text-dark {
+  left: 3rem;
+  width: 91%;
+  height: 100%;
+  top: 0;
+  z-index: 999999;
+  // width: calc(var(--vw, 1vw) * 90);
 }
 
 .sidebar-header {

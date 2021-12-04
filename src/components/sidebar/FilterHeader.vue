@@ -6,13 +6,13 @@
       d-flex
       justify-content-between
       align-items-center
-      filter__card-header
+      filters__card__header
     "
     role="tab"
   >
-    <a v-b-toggle="id" class="filter__toggle-header"
+    <a v-b-toggle="id" class="filter__header"
       >{{ header }} <span v-if="selected"> &bull; </span>
-      <span v-if="selected" class="filter__items-selected"
+      <span v-if="selected" class="filter__header__items-selected"
         >{{ selected }} selected</span
       ></a
     >
@@ -31,11 +31,14 @@ export default {
 </script>
 
 <style lang="scss">
-.filter__card-header {
+a:hover {
+  text-decoration: none;
+}
+.filters__card__header {
   border-bottom: 1px solid $gray-border;
 }
 
-.filter__toggle-header {
+.filter__header {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -46,7 +49,7 @@ export default {
   }
 }
 
-.filter__items-selected {
+.filter__header__items-selected {
   color: $blue;
   font-weight: bold;
 }
@@ -54,9 +57,5 @@ export default {
 .collapsed > .when-open,
 .not-collapsed > .when-closed {
   display: none;
-}
-
-a:hover {
-  text-decoration: none;
 }
 </style>

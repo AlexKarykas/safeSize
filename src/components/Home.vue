@@ -1,22 +1,14 @@
 <template>
   <div class="home">
     <span class="title-sm d-block d-sm-none"> Our recommendation </span>
-    <span class="title-lg d-none d-sm-block"> 15 RESULTS </span>
-    <b-container fluid="l" class="shoes-container">
-      <b-row no-gutters>
-        <b-col><Shoe /></b-col>
-        <b-col><Shoe /></b-col>
-        <b-col><Shoe /></b-col>
-      </b-row>
-      <b-row no-gutters>
-        <b-col><Shoe /></b-col>
-        <b-col><Shoe /></b-col>
-        <b-col><Shoe /></b-col>
-      </b-row>
-      <b-row no-gutters>
-        <b-col><Shoe /></b-col>
-        <b-col><Shoe /></b-col>
-        <b-col><Shoe /></b-col>
+    <span class="title-lg d-none d-sm-block">
+      {{ results.length }} RESULTS
+    </span>
+    <b-container fluid class="main__container">
+      <b-row>
+        <b-col v-for="(shoe, idx) in results" :key="idx">
+          <Shoe :title="shoe.title"
+        /></b-col>
       </b-row>
     </b-container>
   </div>
@@ -29,8 +21,27 @@ export default {
   components: {
     Shoe,
   },
-  props: {
-    msg: String,
+  data() {
+    return {
+      results: [
+        //Items fetched from an HTTP request
+        { id: 1, title: "Nike Free Run" },
+        { id: 2, title: "Nike Free Run" },
+        { id: 3, title: "Nike Free Run" },
+        { id: 4, title: "Nike Free Run" },
+        { id: 5, title: "Nike Free Run" },
+        { id: 6, title: "Nike Free Run" },
+        { id: 7, title: "Nike Free Run" },
+        { id: 8, title: "Nike Free Run" },
+        { id: 9, title: "Nike Free Run" },
+        { id: 10, title: "Nike Free Run" },
+        { id: 11, title: "Nike Free Run" },
+        { id: 12, title: "Nike Free Run" },
+        { id: 13, title: "Nike Free Run" },
+        { id: 14, title: "Nike Free Run" },
+        { id: 15, title: "Nike Free Run" },
+      ],
+    };
   },
 };
 </script>
@@ -39,6 +50,7 @@ export default {
 .home,
 .shoes-container {
   margin-top: 1rem;
+  z-index: -1;
 }
 
 .title-sm,
