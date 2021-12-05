@@ -28,22 +28,19 @@
             <b-badge class="navbar__orders__badge" pill variant="light">{{
               orders
             }}</b-badge>
-            <b-avatar
-              icon="basket"
-              class="cart-avatar"
-              variant="primary"
-            ></b-avatar>
+            <b-avatar icon="basket" id="navbar__avatar--cart"></b-avatar>
           </div>
           <b-avatar
-            class="name-avatar d-block d-sm-none"
+            class="navbar__avatar--name d-block d-sm-none"
             variant="light"
             text="AM"
           ></b-avatar>
           <b-avatar
-            id="chevron-avatar"
+            id="navbar__avatar--chevron"
             icon="chevron-down"
             class="d-none d-sm-block"
             variant="light"
+            v-b-toggle.sidebar
           ></b-avatar>
         </b-row>
       </b-container>
@@ -92,23 +89,22 @@ export default {
   opacity: 0;
 }
 
-.name-avatar {
+.navbar__avatar--name {
   box-shadow: $shadow;
   background-color: $white;
 }
 
-.cart-avatar {
+#navbar__avatar--cart {
   margin: 0 0.6rem;
   box-shadow: $shadow;
   background-color: $lightblue;
 }
 
-#chevron-avatar {
+#navbar__avatar--chevron {
   margin: 0 0.6rem;
   padding-top: 0.5rem;
   box-shadow: $shadow;
   color: $lightblue;
-  //   background-color: $lightblue;
 }
 
 .navbar__orders__badge {

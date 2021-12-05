@@ -19,9 +19,10 @@
     <b-card no-body class="mb-1">
       <FilterHeader id="color" header="Colour" :selected="selectedColors" />
       <b-collapse id="color" accordion="filters-accordion" role="tabpanel">
-        <b-button-group size="sm" class="color-btn-goup">
+        <b-button-group size="lg" class="color-btn-group">
           <b-button
-            class="color-btn"
+            id="color-btn"
+            v-bind:class="rightSidebar ? 'color-btn--sm' : 'color-btn--lg'"
             v-for="(btn, idx) in colorBtns"
             :key="idx"
             :pressed.sync="btn.state"
@@ -62,6 +63,7 @@
 import FilterHeader from "./FilterHeader.vue";
 export default {
   components: { FilterHeader },
+  props: ["rightSidebar"],
   data() {
     return {
       myToggle: false,
@@ -115,14 +117,33 @@ export default {
 .btn-outline-secondary:not(:disabled):not(.disabled):active,
 .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-secondary.dropdown-toggle,
-.color-btn:hover {
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-  border: solid 1px $blue;
-  background-color: $blue;
+#color-btn:hover,
+#color-btn:active {
+  box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.16);
+  background-color: $blue !important;
+  color: $white !important;
 }
 
-.color-btn-goup {
+.color-btn-group {
   text-align: left;
+}
+
+#color-btn {
+  height: 3.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0;
+  border-radius: 20%;
+  color: #919698;
+}
+
+.color-btn--sm {
+  width: 3.2rem;
+}
+
+.color-btn--lg {
+  width: 4.4rem;
 }
 
 .brand-checkbox-list {
@@ -132,22 +153,5 @@ export default {
 
 .checkbox-item {
   margin: 1%;
-}
-
-.menu-header {
-  padding: 0.25rem;
-  font-size: 1.1rem;
-  text-align: left;
-}
-
-.color-btn {
-  width: 3.2rem;
-  height: 3.2rem;
-  align-items: center;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin: 0.5rem;
-  padding: 0;
-  border-radius: 25%;
 }
 </style>

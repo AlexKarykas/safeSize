@@ -4,8 +4,8 @@
     <span class="home__title--lg d-none d-sm-block">
       {{ results.length }} RESULTS
     </span>
-    <b-container fluid class="main__container">
-      <b-row>
+    <b-container fluid >
+      <b-row align-v="start">
         <b-col v-for="(shoe, idx) in results" :key="idx">
           <Shoe :title="shoe.title"
         /></b-col>

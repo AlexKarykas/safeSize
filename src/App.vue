@@ -37,7 +37,7 @@ export default {
       isOpen: false,
       showBackdrop: false,
       showRightSidebar: false,
-      smBreakpoint: 576,
+      smBreakpoint: 480,//576,
     };
   },
   methods: {
@@ -116,7 +116,7 @@ export default {
 }
 
 .home--push-right {
-  margin-left: $b-sidebar-width;
+  margin-left: calc($b-sidebar-width + 1rem);
   transition: margin $b-sidebar-transition-duration ease-out;
 }
 

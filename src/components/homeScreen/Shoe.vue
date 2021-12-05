@@ -6,12 +6,16 @@
       >
       <b-col cols="10" class="header__order-options">
         <div class="header__online-group">
-          <b-icon class="order-options__icon" icon="globe" id="asd"></b-icon>
+          <b-icon
+            class="header__order-options__icon"
+            icon="globe"
+            id="asd"
+          ></b-icon>
           <span class="header__online"> Online </span>
         </div>
         <div class="header__in-store-group">
           <b-icon
-            class="order-options__icon"
+            class="header__order-options__icon"
             variant="success"
             icon="shop-window"
           ></b-icon>
@@ -42,11 +46,8 @@ export default {
 </script>
 
 <style lang="scss">
-// #asd {
-//   color: $lightblue;
-// }
 .shoe__card {
-  height: 18rem;
+  height: 17rem;
   max-width: 30rem;
   min-width: 21rem;
   margin: 0 0.5rem 1.5rem;
@@ -69,11 +70,6 @@ export default {
   font-weight: 500;
 }
 
-.shoe__img__row {
-  border-radius: 1.2rem 0 0 0;
-  background: $white;
-}
-
 .header__order-options {
   padding: 0.5rem 0;
   border-radius: 1.2rem 0 0 0;
@@ -81,21 +77,6 @@ export default {
   justify-content: end;
   display: flex;
   flex-direction: row;
-}
-
-.shoe__img {
-  width: 17rem;
-  height: 8rem;
-  margin: 1rem auto;
-}
-
-.shoe__title {
-  font-size: 1.5rem;
-  font-weight: 500;
-  text-align: center;
-  color: #404040;
-  background: $white;
-  padding-bottom: 100%;
 }
 
 .header__online-group {
@@ -118,7 +99,27 @@ export default {
   margin: 0 0.2rem 0 0.2rem;
 }
 
-.order-options__icon {
+.header__order-options__icon {
   display: inline;
+}
+
+.shoe__img__row {
+  border-radius: 1.2rem 0 0 0;
+  background: $white;
+}
+
+.shoe__img {
+  width: 17rem;
+  height: 8rem;
+  margin: 1rem auto;
+}
+
+.shoe__title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  color: #404040;
+  background: $white;
+  padding-bottom: 100%;
 }
 </style>

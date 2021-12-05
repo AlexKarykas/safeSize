@@ -9,34 +9,16 @@
     <template #default="{ hide }">
       <div class="sidebar-basic">
         <b-button-close
-          si
           @click="hide"
           class="d-inline-block d-sm-none sidebar__close-btn"
         ></b-button-close>
         <b-container>
           <b-row @click="hide" class="d-none d-sm-inline-block">
             <b-icon icon="chevron-left"></b-icon>
-            <h2 class="sidebar__header">Our recommendations</h2>
-          </b-row>
-          <b-row align-h="between">
-            <h4 class="menu-header">Functional Advice</h4>
-            <b-form-checkbox switch size="lg" class="mr-n2"> </b-form-checkbox>
+            <h2 class="sidebar__title">Our recommendations</h2>
           </b-row>
         </b-container>
-        <b-container class="sidebar__rectangles__container">
-          <b-row align-h="between" class="sidebar__rectangle">
-            <p>CATEGORY: ROAD</p>
-            <b-icon icon="info-circle-fill" variant="primary"></b-icon>
-          </b-row>
-          <b-row align-h="between" class="sidebar__rectangle">
-            <p>CUSHIONING: CUSHIONING</p>
-            <b-icon icon="info-circle-fill" variant="primary"></b-icon>
-          </b-row>
-          <b-row align-h="between" class="sidebar__rectangle">
-            <p>STABILITY: STABLE+</p>
-            <b-icon icon="info-circle-fill" variant="primary"></b-icon>
-          </b-row>
-        </b-container>
+        <FunctionalAdvice />
         <b-input-group class="sidebar__search-box">
           <b-form-input
             type="search"
@@ -54,7 +36,7 @@
             </button>
           </b-input-group-append>
         </b-input-group>
-        <SidebarFilters />
+        <SidebarFilters v-bind:rightSidebar="showRight" />
         <b-button class="sidebar__btn sidebar__btn--remove" variant="light"
           >Remove All</b-button
         >
@@ -68,16 +50,20 @@
 
 <script>
 import SidebarFilters from "./SidebarFilters.vue";
+import FunctionalAdvice from "./FunctionalAdvice.vue";
+
 export default {
-  name: "Drawer",
+  name: "Sidebar",
   props: ["width", "showBackdrop", "showRight"],
-  components: { SidebarFilters },
+  components: { SidebarFilters, FunctionalAdvice },
 };
 </script>
 
 <style lang="scss">
 .search-box,
-.search-box:focus {
+.form-control.search-box,
+.search-box:focus,
+.form-control.search-box:focus {
   border: none;
   border-bottom: 1px solid $gray-border;
   background: inherit;
@@ -88,6 +74,12 @@ export default {
 .search-box__button:hover,
 .search-box__button:active {
   transform: scale(1.2);
+}
+
+.menu-header {
+  padding: 0.25rem;
+  font-size: 1.1rem;
+  text-align: left;
 }
 
 .sidebar__close-btn.close {
@@ -103,17 +95,21 @@ export default {
 
 .b-sidebar.shadow.bg-light.text-dark {
   top: 3.5rem;
+  margin-left: 1rem;
+  width: $b-sidebar-width;
 }
 
 .b-sidebar.b-sidebar-right.bg-light.text-dark {
   left: 3rem;
-  width: 91%;
+  width: 92%;
   height: 100%;
   top: 0;
+  margin-left: 0;
+  padding-right: 1rem;
   z-index: 999999;
 }
 
-.sidebar__header {
+.sidebar__title {
   display: inline-block;
   padding: 0.25rem;
   font-size: 1.3rem;
@@ -124,7 +120,9 @@ export default {
 }
 
 .sidebar-basic {
-  margin: 1rem;
+  padding: 1rem;
+  min-width: 200px;
+  justify-content: center;
 }
 
 .sidebar__search-box {
@@ -132,42 +130,22 @@ export default {
   outline: none;
 }
 
-.sidebar__rectangles__container {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.sidebar__rectangle {
-  margin: 0.6rem 0;
-  padding: 0.4rem 1rem;
-  border-radius: 0.5rem;
-  background-color: $blue-background;
-  p {
-    margin-bottom: 0;
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: left;
-    color: $blue;
-  }
-}
-
 .sidebar__btn {
   width: 7.8rem;
   height: 3rem;
-  margin: 3%;
+  margin: 2%;
   font-weight: bold;
   border-radius: 1rem;
+  box-shadow: $shadow;
 }
 
 .sidebar__btn--remove {
   color: $blue;
-  box-shadow: $shadow;
   background-color: $white;
 }
 
 .sidebar__btn--apply {
   color: $white;
-  box-shadow: $shadow;
   background-color: $blue;
 }
 </style>

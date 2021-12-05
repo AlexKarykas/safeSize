@@ -34,6 +34,7 @@ export default {
 a:hover {
   text-decoration: none;
 }
+
 .filters__card__header {
   border-bottom: 1px solid $gray-border;
 }
@@ -42,10 +43,10 @@ a:hover {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
   color: #404040;
   &:hover {
     cursor: pointer;
+	text-decoration: none;
   }
 }
 
@@ -54,8 +55,13 @@ a:hover {
   font-weight: bold;
 }
 
+.when-closed, 
+.when-open {
+	cursor: pointer;
+}
+
 .collapsed > .when-open,
 .not-collapsed > .when-closed {
-  display: none;
+  display: none !important;
 }
 </style>

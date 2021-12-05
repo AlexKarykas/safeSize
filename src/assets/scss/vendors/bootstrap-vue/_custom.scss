@@ -119,7 +119,7 @@ $paragraph-margin-bottom: 1rem !default;
 
 $grid-breakpoints: (
 	xs: 0,
-	sm: 576px,
+	sm: 480px,//576px,
 	md: 768px,
 	lg: 992px,
 	xl: 1200px,
@@ -1082,7 +1082,7 @@ $badge-pill-border-radius: 10rem !default;
 // $b-icon-animation-throb-duration: 0.75s !default;
 
 // --- Sidebar ---
-$b-sidebar-width: 320px !default;
+$b-sidebar-width: 380px !default;
 $b-sidebar-transition-duration: 0.3s !default;
 $b-sidebar-zindex: calc(#{$zindex-fixed} + 5) !default;
 // $b-sidebar-header-font-size: 1.5rem !default;
