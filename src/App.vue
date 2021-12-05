@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import Home from "./components/homeScreen/Home.vue";
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/sidebar/Sidebar.vue";
 
@@ -37,7 +37,23 @@ export default {
       isOpen: false,
       showBackdrop: false,
       showRightSidebar: false,
+      smBreakpoint: 576,
     };
+  },
+  methods: {
+    toggleSmallScreenSidebar(isSmallScreen) {
+      if (isSmallScreen.matches === true) {
+        this.showBackdrop = true;
+        this.showRightSidebar = true;
+      }
+    },
+
+    toggleLargeScreenSidebar(isLargeScreen) {
+      if (isLargeScreen.matches === true) {
+        this.showBackdrop = false;
+        this.showRightSidebar = false;
+      }
+    },
   },
   mounted() {
     this.$root.$on("bv::collapse::state", (collapseId, isOpen) => {
@@ -45,39 +61,38 @@ export default {
         this.isOpen = isOpen;
       }
     });
-    const smallScreenQuery = window.matchMedia("(max-width: 576px)");
-    console.log("smallScreenQuery " + smallScreenQuery);
-    smallScreenQuery.onchange = () => {
-      if (smallScreenQuery.matches === true) {
-        this.showBackdrop = true;
-        this.showRightSidebar = true;
-      }
+
+    const isSmallScreen = window.matchMedia(
+      `(max-width: ${this.smBreakpoint}px)`
+    );
+    this.toggleSmallScreenSidebar(isSmallScreen);
+    isSmallScreen.onchange = () => {
+      this.toggleSmallScreenSidebar(isSmallScreen);
     };
-    const largeScreenQuery = window.matchMedia("(min-width: 576px)");
-    console.log("largeScreenQuery " + largeScreenQuery);
-    largeScreenQuery.onchange = () => {
-      if (largeScreenQuery.matches === true) {
-        this.showBackdrop = false;
-        this.showRightSidebar = false;
-      }
+
+    const isLargeScreen = window.matchMedia(
+      `(min-width: ${this.smBreakpoint}px)`
+    );
+    this.toggleLargeScreenSidebar(isLargeScreen);
+    isLargeScreen.onchange = () => {
+      this.toggleLargeScreenSidebar(isLargeScreen);
     };
-    console.log("this.showBackdrop " + this.showBackdrop);
-    console.log("this.showRightSidebar " + this.showRightSidebar);
   },
   unmounted() {
-    const smallScreenQuery = window.matchMedia("(max-width: 576px)");
-    smallScreenQuery.onchange = () => {
-      if (smallScreenQuery.matches === true) {
-        this.showBackdrop = true;
-        this.showRightSidebar = true;
-      }
+    const isSmallScreen = window.matchMedia(
+      `(max-width: ${this.smBreakpoint}px)`
+    );
+    this.toggleSmallScreenSidebar(isSmallScreen);
+    isSmallScreen.onchange = () => {
+      this.toggleSmallScreenSidebar(isSmallScreen);
     };
-    const largeScreenQuery = window.matchMedia("(min-width: 576px)");
-    largeScreenQuery.onchange = () => {
-      if (largeScreenQuery.matches === true) {
-        this.showBackdrop = false;
-        this.showRightSidebar = false;
-      }
+
+    const isLargeScreen = window.matchMedia(
+      `(min-width: ${this.smBreakpoint}px)`
+    );
+    this.toggleLargeScreenSidebar(isLargeScreen);
+    isLargeScreen.onchange = () => {
+      this.toggleLargeScreenSidebar(isLargeScreen);
     };
   },
 };
@@ -97,17 +112,19 @@ export default {
 
 .home--push-back {
   margin-left: inherit;
-  transition: all 300ms ease-in;
+  transition: all $b-sidebar-transition-duration ease-in;
 }
 
 .home--push-right {
-  margin-left: 320px;
-  transition: margin 300ms ease-out;
+  margin-left: $b-sidebar-width;
+  transition: margin $b-sidebar-transition-duration ease-out;
 }
 
 .home--push-left {
-  margin-left: -320px;
+  overflow: hidden;
+  margin-left: -$b-sidebar-width;
   opacity: 0;
-  transition: all 300ms ease-out;
+  max-height: 50vh;
+  transition: all $b-sidebar-transition-duration ease-out;
 }
 </style>

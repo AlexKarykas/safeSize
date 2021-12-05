@@ -3,7 +3,7 @@
     <h4 class="menu-header">Filters</h4>
     <b-card no-body class="mb-1">
       <FilterHeader id="brand" header="Brand" :selected="selectedBrands" />
-      <b-collapse id="brand" accordion="my-accordion" role="tabpanel">
+      <b-collapse id="brand" accordion="filters-accordion" role="tabpanel">
         <b-form-group class="brand-checkbox-list">
           <b-form-checkbox
             class="checkbox-item"
@@ -18,7 +18,7 @@
     </b-card>
     <b-card no-body class="mb-1">
       <FilterHeader id="color" header="Colour" :selected="selectedColors" />
-      <b-collapse id="color" accordion="my-accordion" role="tabpanel">
+      <b-collapse id="color" accordion="filters-accordion" role="tabpanel">
         <b-button-group size="sm" class="color-btn-goup">
           <b-button
             class="color-btn"
@@ -35,20 +35,24 @@
     </b-card>
     <b-card no-body class="mb-1">
       <FilterHeader id="gender" header="Gender" />
-      <b-collapse id="gender" accordion="my-accordion" role="tabpanel">
-        <b-form-group> </b-form-group>
+      <b-collapse id="gender" accordion="filters-accordion" role="tabpanel">
+        <b-form-group>Gender Options</b-form-group>
       </b-collapse>
     </b-card>
     <b-card no-body class="mb-1">
       <FilterHeader id="fabric" header="Fabric" />
-      <b-collapse id="fabric" accordion="my-accordion" role="tabpanel">
-        <b-form-group> </b-form-group>
+      <b-collapse id="fabric" accordion="filters-accordion" role="tabpanel">
+        <b-form-group>Fabric options</b-form-group>
       </b-collapse>
     </b-card>
     <b-card no-body class="mb-1">
       <FilterHeader id="availability" header="Availability" />
-      <b-collapse id="availability" accordion="my-accordion" role="tabpanel">
-        <b-form-group> </b-form-group>
+      <b-collapse
+        id="availability"
+        accordion="filters-accordion"
+        role="tabpanel"
+      >
+        <b-form-group>Availability options</b-form-group>
       </b-collapse>
     </b-card>
   </div>
@@ -87,14 +91,12 @@ export default {
   },
   methods: {
     addSelectedBrand(event) {
-      console.log(event);
       if (event === false) {
         return this.selectedBrands--;
       }
       return this.selectedBrands++;
     },
     addSelectedColor(event) {
-      console.log(event.target.classList.contains("active"));
       if (event.target.classList.contains("active")) {
         return this.selectedColors--;
       }

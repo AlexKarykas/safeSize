@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
-    <span class="title-sm d-block d-sm-none"> Our recommendation </span>
-    <span class="title-lg d-none d-sm-block">
+  <div>
+    <span class="home__title--sm d-block d-sm-none"> Our recommendation </span>
+    <span class="home__title--lg d-none d-sm-block">
       {{ results.length }} RESULTS
     </span>
     <b-container fluid class="main__container">
@@ -47,22 +47,16 @@ export default {
 </script>
 
 <style >
-.home,
-.shoes-container {
-  margin-top: 1rem;
-  z-index: -1;
-}
-
-.title-sm,
-.title-lg {
+.home__title--sm,
+.home__title--lg {
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   letter-spacing: 0.15px;
   color: #404040;
 }
 
-.title-lg {
+.home__title--lg {
   text-align: left;
 }
 </style>

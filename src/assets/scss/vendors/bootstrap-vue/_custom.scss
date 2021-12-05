@@ -580,7 +580,7 @@ $font-family-base: $font-family-sans-serif !default;
 
 // $zindex-dropdown:                   1000 !default;
 // $zindex-sticky:                     1020 !default;
-// $zindex-fixed:                      1030 !default;
+$zindex-fixed: 1030 !default;
 // $zindex-modal-backdrop:             1040 !default;
 // $zindex-modal:                      1050 !default;
 // $zindex-popover:                    1060 !default;
@@ -1082,9 +1082,9 @@ $badge-pill-border-radius: 10rem !default;
 // $b-icon-animation-throb-duration: 0.75s !default;
 
 // --- Sidebar ---
-// $b-sidebar-width: 320px !default;
-// $b-sidebar-transition-duration: 0.3s !default;
-// $b-sidebar-zindex: calc(#{$zindex-fixed} + 5) !default;
+$b-sidebar-width: 320px !default;
+$b-sidebar-transition-duration: 0.3s !default;
+$b-sidebar-zindex: calc(#{$zindex-fixed} + 5) !default;
 // $b-sidebar-header-font-size: 1.5rem !default;
 // $b-sidebar-header-padding-y: $navbar-padding-y !default;
 // $b-sidebar-header-padding-x: $navbar-padding-x !default;

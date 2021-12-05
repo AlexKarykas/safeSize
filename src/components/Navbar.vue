@@ -1,7 +1,9 @@
 <template>
   <b-navbar
     v-bind:class="
-      rightSidebar ? 'navbar--custom' : 'navbar--custom custom-navbar--lg'
+      rightSidebar
+        ? 'navbar--custom navbar--custom--sm'
+        : 'navbar--custom navbar--custom--lg'
     "
   >
     <div v-b-toggle.sidebar class="d-block d-sm-none">
@@ -38,9 +40,10 @@
             text="AM"
           ></b-avatar>
           <b-avatar
+            id="chevron-avatar"
             icon="chevron-down"
-            class="chevron-avatar d-none d-sm-block"
-            variant="primary"
+            class="d-none d-sm-block"
+            variant="light"
           ></b-avatar>
         </b-row>
       </b-container>
@@ -62,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss">
-.navbar--custom.navbar {
+.navbar.navbar--custom {
   position: sticky;
   top: 0;
   left: 0;
@@ -72,8 +75,12 @@ export default {
   box-shadow: $shadow-lg;
 }
 
-.custom-navbar--lg {
-  z-index: 10000;
+.navbar--custom--sm {
+  z-index: calc($b-sidebar-zindex - 5);
+}
+
+.navbar--custom--lg {
+  z-index: calc($b-sidebar-zindex + 5);
 }
 
 .navbar__text {
@@ -96,11 +103,12 @@ export default {
   background-color: $lightblue;
 }
 
-.chevron-avatar {
+#chevron-avatar {
   margin: 0 0.6rem;
   padding-top: 0.5rem;
   box-shadow: $shadow;
-  background-color: $lightblue;
+  color: $lightblue;
+  //   background-color: $lightblue;
 }
 
 .navbar__orders__badge {
